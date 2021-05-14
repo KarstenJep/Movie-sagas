@@ -19,6 +19,11 @@ function MovieList() {
         history.push('/addMovie');
     }
 
+    const handleImg = (movie) => {
+        console.log('Clicked Image!!', movie);
+        // history.push('/details')
+    }
+
     return (
         <main>
             <h1>MovieList</h1>
@@ -28,7 +33,7 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title}/>
+                            <img src={movie.poster} alt={movie.title} onClick={() => handleImg(movie.id)}/>
                         </div>
                     );
                 })}
