@@ -92,6 +92,7 @@ const genres = (state = [], action) => {
 
 // Used to store the movie details
 const details = (state = [], action) => {
+    console.log('in details reducer', action.payload);
     switch (action.type) {
         case 'SET_DETAILS':
             return action.payload;

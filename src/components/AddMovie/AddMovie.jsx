@@ -69,7 +69,6 @@ function AddMovie() {
 
 export default AddMovie;
 
-
 {/* <select className="select" onChange={(event) => setCategory(event.target.value)}>
                     <option value="Default">Choose Category</option>
                     <option value="1">Adventure</option>
