@@ -6,8 +6,8 @@ import { useHistory } from 'react-router-dom';
 function MovieList() {
 
     const dispatch = useDispatch();
-    const movies = useSelector(store => store.movies);
     const history = useHistory();
+    const movies = useSelector(store => store.movies);
 
 
     useEffect(() => {
@@ -21,6 +21,8 @@ function MovieList() {
 
     const handleImg = (movie) => {
         console.log('Clicked Image!!', movie);
+        dispatch({ type: 'ID' });
+
         // history.push('/details')
     }
 
