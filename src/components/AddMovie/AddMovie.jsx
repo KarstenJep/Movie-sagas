@@ -1,6 +1,6 @@
 import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 function AddMovie() {
@@ -11,7 +11,12 @@ function AddMovie() {
     const [poster, setPoster] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
+    const genres = useSelector(store => store.genres);
 
+    console.log('in AM genres', genres);
+    useEffect(() => {
+        dispatch({ type: 'FETCH_GENRES' });
+    }, []);
 
     const handleCancel = () => {
         console.log('Clicked Add Movie button');
@@ -49,7 +54,25 @@ function AddMovie() {
                     onChange={(event) => setPoster(event.target.value)}/>
             <textarea name={description} rows="3" cols="40" placeholder="Add a Description"
                     onChange={(event) => setDescription(event.target.value)}></textarea>
-            <select className="select" onChange={(event) => setCategory(event.target.value)}>
+            <select className="genres" onChange={(event) => setCategory(event.target.value)}>
+                <option value="Default">Choose Category</option>
+                {genres.map(genre => {
+                    return (
+                        <option key={genre.id} value={genre.id}>{genre.name}</option>
+                    );
+                })}
+            </select>
+            <button className="button" type="submit">Save</button>
+        </form>
+        </>
+    )
+}
+
+export default AddMovie;
+
+{/* <img src={movie.poster} alt={movie.title} onClick={() => handleImg(movie.id)}/> */}
+
+{/* <select className="select" onChange={(event) => setCategory(event.target.value)}>
                     <option value="Default">Choose Category</option>
                     <option value="1">Adventure</option>
                     <option value="2">Animated</option>
@@ -64,11 +87,4 @@ function AddMovie() {
                     <option value="Science Fiction">Science Fiction</option>
                     <option value="Space-Opera">Space-Opera</option>
                     <option value="Superhero">Superhero</option>
-                </select>
-            <button className="button" type="submit">Save</button>
-        </form>
-        </>
-    )
-}
-
-export default AddMovie;
+                </select> */}
