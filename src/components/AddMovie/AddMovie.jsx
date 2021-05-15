@@ -7,13 +7,12 @@ function AddMovie() {
 
     const dispatch = useDispatch();
     const history = useHistory();
+    const genres = useSelector(store => store.genres);
     const [title, setTitle] = useState('');
     const [poster, setPoster] = useState('');
     const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
-    const genres = useSelector(store => store.genres);
+    const [genre, setGenre] = useState('');
 
-    console.log('in AM genres', genres);
     useEffect(() => {
         dispatch({ type: 'FETCH_GENRES' });
     }, []);
@@ -25,20 +24,20 @@ function AddMovie() {
 
     const handleAdd = () => {
         event.preventDefault();
-        console.log('Adding a movie!', title, poster, description, category);
+        console.log('Adding a movie!', title, poster, description, genre);
         dispatch({
             type: 'ADD_MOVIE', payload: {
                 title: title,
                 poster: poster,
                 description: description,
-                genre_id: category,
+                genre_id: genre,
             }
         })
         // Clear Form
         setTitle('')
         setPoster('')
         setDescription('')
-        setCategory('')
+        setGenre('')
         // Bring user back to home view
         history.push('/')
     }
@@ -54,7 +53,7 @@ function AddMovie() {
                     onChange={(event) => setPoster(event.target.value)}/>
             <textarea name={description} rows="3" cols="40" placeholder="Add a Description"
                     onChange={(event) => setDescription(event.target.value)}></textarea>
-            <select className="genres" onChange={(event) => setCategory(event.target.value)}>
+            <select className="genres" onChange={(event) => setGenre(event.target.value)}>
                 <option value="Default">Choose Category</option>
                 {genres.map(genre => {
                     return (
@@ -70,7 +69,6 @@ function AddMovie() {
 
 export default AddMovie;
 
-{/* <img src={movie.poster} alt={movie.title} onClick={() => handleImg(movie.id)}/> */}
 
 {/* <select className="select" onChange={(event) => setCategory(event.target.value)}>
                     <option value="Default">Choose Category</option>
