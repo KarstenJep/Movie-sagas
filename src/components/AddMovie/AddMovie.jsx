@@ -19,8 +19,21 @@ function AddMovie() {
     const handleAdd = () => {
         event.preventDefault();
         console.log('Adding a movie!', title, url, description, category);
-
-        // setTitle('')
+        dispatch({
+            type: 'ADD_MOVIE', payload: {
+                title: title,
+                url: url,
+                description: description,
+                category: category,
+            }
+        })
+        // Clear Form
+        setTitle('')
+        setUrl('')
+        setDescription('')
+        setCategory('')
+        // Bring user back to home view
+        // history.push('/')
     }
 
     return (
@@ -57,5 +70,3 @@ function AddMovie() {
 }
 
 export default AddMovie;
-
-//id="id for label"
