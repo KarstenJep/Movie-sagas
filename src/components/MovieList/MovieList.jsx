@@ -19,9 +19,9 @@ function MovieList() {
         history.push('/addMovie');
     }
 
-    const handleImg = (movie) => {
-        console.log('Clicked Image!!', movie);
-        dispatch({ type: 'ID' });
+    const handleImg = (id) => {
+        console.log('Clicked Image!!', id);
+        dispatch({ type: 'GET_DETAILS', payload: id});
 
         // history.push('/details')
     }

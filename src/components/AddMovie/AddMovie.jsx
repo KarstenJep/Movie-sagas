@@ -1,12 +1,14 @@
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 
 function AddMovie() {
 
+    const dispatch = useDispatch();
     const history = useHistory();
     const [title, setTitle] = useState('');
-    const [url, setUrl] = useState('');
+    const [poster, setPoster] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');
 
@@ -18,22 +20,22 @@ function AddMovie() {
 
     const handleAdd = () => {
         event.preventDefault();
-        console.log('Adding a movie!', title, url, description, category);
+        console.log('Adding a movie!', title, poster, description, category);
         dispatch({
             type: 'ADD_MOVIE', payload: {
                 title: title,
-                url: url,
+                poster: poster,
                 description: description,
-                category: category,
+                genre_id: category,
             }
         })
         // Clear Form
         setTitle('')
-        setUrl('')
+        setPoster('')
         setDescription('')
         setCategory('')
         // Bring user back to home view
-        // history.push('/')
+        history.push('/')
     }
 
     return (
@@ -43,18 +45,18 @@ function AddMovie() {
         <form className="movieForm" onSubmit={handleAdd}>
             <input className="input" type="text" placeholder="Enter Title" value={title} 
                     onChange={(event) => setTitle(event.target.value)}/>
-            <input className="input" type="text" placeholder="Enter URL" value={url} 
-                    onChange={(event) => setUrl(event.target.value)}/>
+            <input className="input" type="text" placeholder="Enter URL" value={poster} 
+                    onChange={(event) => setPoster(event.target.value)}/>
             <textarea name={description} rows="3" cols="40" placeholder="Add a Description"
                     onChange={(event) => setDescription(event.target.value)}></textarea>
             <select className="select" onChange={(event) => setCategory(event.target.value)}>
                     <option value="Default">Choose Category</option>
-                    <option value="Adventure">Adventure</option>
-                    <option value="Animated">Animated</option>
-                    <option value="Biographical">Biographical</option>
-                    <option value="Comedy">Comedy</option>
-                    <option value="Disaster">Disaster</option>
-                    <option value="Drama">Drama</option>
+                    <option value="1">Adventure</option>
+                    <option value="2">Animated</option>
+                    <option value="3">Biographical</option>
+                    <option value="4">Comedy</option>
+                    <option value="5">Disaster</option>
+                    <option value="6">Drama</option>
                     <option value="Epic">Epic</option>
                     <option value="Fantasy">Fantasy</option>
                     <option value="Musical">Musical</option>
