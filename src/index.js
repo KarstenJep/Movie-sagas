@@ -27,7 +27,7 @@ function* fetchAllMovies() {
         yield put({ type: 'SET_MOVIES', payload: movies.data });
 
     } catch {
-        console.log('get all error');
+        console.log('fetch all movies error');
     }
 }
 
@@ -39,7 +39,7 @@ function* fetchAllGenres() {
         yield put({ type: 'SET_GENRES', payload: genres.data });
 
     } catch {
-        console.log('get all error');
+        console.log('fetch all genres error');
     }
 }
 
@@ -51,7 +51,7 @@ function* fetchMovieDetails(action) {
         yield put({ type: 'SET_DETAILS', payload: details.data });
 
     } catch {
-        console.log('get details error');
+        console.log('fetch movie details error');
     }
 }
 
@@ -62,8 +62,8 @@ function* addMovies( action ) {
         yield put({type: 'FETCH_MOVIES'});
 
     } catch (error) {
-        alert(`Sorry. Things aren't working at the moment. Try again later`);
-        console.log('Error adding book', error);
+        alert(`Sorry. Things aren't working at the moment.`);
+        console.log('Error adding movie', error);
     }
 }
 

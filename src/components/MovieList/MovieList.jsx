@@ -17,7 +17,7 @@ function MovieList() {
 
     // handle for for 'Add movie' button
     const handleButton = () => {
-        console.log('Clicked Add Movie button');
+        // console.log('Clicked Add Movie button');
         // bring user to 'Add Movie' view
         history.push('/addMovie');
     }
@@ -46,7 +46,6 @@ function MovieList() {
                 })}
             </section>
         </main>
-
     );
 }
 
