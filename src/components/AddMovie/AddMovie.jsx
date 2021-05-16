@@ -1,30 +1,37 @@
 import { useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 
 function AddMovie() {
 
+    // setting up useDispatch, useHistory, redux store
     const dispatch = useDispatch();
     const history = useHistory();
     const genres = useSelector(store => store.genres);
+    // setting up state to capture form values
     const [title, setTitle] = useState('');
     const [poster, setPoster] = useState('');
     const [description, setDescription] = useState('');
     const [genre, setGenre] = useState('');
 
+    // using useEffect to grab genre list sent from DB router GET
     useEffect(() => {
         dispatch({ type: 'FETCH_GENRES' });
     }, []);
 
+    // handler for 'Cancel' button
     const handleCancel = () => {
-        console.log('Clicked Add Movie button');
+        // console.log('Clicked Add Movie button');
+        // bring user back to movie list view
         history.push('/');
     }
 
+    // handler for 'Save' button, dispatches form values to rootSaga
     const handleAdd = () => {
         event.preventDefault();
-        console.log('Adding a movie!', title, poster, description, genre);
+        // console.log('Adding a movie!', title, poster, description, genre);
         dispatch({
             type: 'ADD_MOVIE', payload: {
                 title: title,
@@ -42,9 +49,10 @@ function AddMovie() {
         history.push('/')
     }
 
+    // DOM render for add movie form
     return (
         <>
-        <button className="button" onClick={handleCancel}>Cancel</button>
+        <Button className="button" onClick={handleCancel}>Cancel</Button>
         <h2>Add A Movie:</h2>
         <form className="movieForm" onSubmit={handleAdd}>
             <input className="input" type="text" placeholder="Enter Title" value={title} 
@@ -61,27 +69,10 @@ function AddMovie() {
                     );
                 })}
             </select>
-            <button className="button" type="submit">Save</button>
+            <Button className="button" type="submit">Save</Button>
         </form>
         </>
     )
 }
 
 export default AddMovie;
-
-{/* <select className="select" onChange={(event) => setCategory(event.target.value)}>
-                    <option value="Default">Choose Category</option>
-                    <option value="1">Adventure</option>
-                    <option value="2">Animated</option>
-                    <option value="3">Biographical</option>
-                    <option value="4">Comedy</option>
-                    <option value="5">Disaster</option>
-                    <option value="6">Drama</option>
-                    <option value="Epic">Epic</option>
-                    <option value="Fantasy">Fantasy</option>
-                    <option value="Musical">Musical</option>
-                    <option value="Romantic">Romantic</option>
-                    <option value="Science Fiction">Science Fiction</option>
-                    <option value="Space-Opera">Space-Opera</option>
-                    <option value="Superhero">Superhero</option>
-                </select> */}

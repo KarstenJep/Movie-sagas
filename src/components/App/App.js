@@ -4,6 +4,7 @@ import MovieList from '../MovieList/MovieList';
 import Details from '../Details/Details';
 import AddMovie from '../AddMovie/AddMovie';
 
+// added router, routes for views navigation
 function App() {
   return (
     <div className="App">

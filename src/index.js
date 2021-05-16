@@ -11,7 +11,7 @@ import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
 import axios from 'axios';
 
-// Create the rootSaga generator function
+// The rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_GENRES', fetchAllGenres);
@@ -32,7 +32,7 @@ function* fetchAllMovies() {
 }
 
 function* fetchAllGenres() {
-    // get all movies from the DB
+    // get all genres from the DB
     try {
         const genres = yield axios.get('/api/genre');
         console.log('get all genres:', genres.data);

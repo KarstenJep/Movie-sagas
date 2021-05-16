@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
+// grabs all movies by title and sends to saga
 router.get('/', (req, res) => {
   const query = `SELECT * FROM movies ORDER BY "title" ASC`;
   pool.query(query)
@@ -14,22 +15,7 @@ router.get('/', (req, res) => {
     })
 });
 
-// router.get('/details/:id', (req, res) => {
-//   const query = `SELECT movies.description, genres.name FROM movies
-//                   JOIN movies_genres ON movies.id = movies_genres.movie_id
-//                   JOIN genres ON movies_genres.genre_id = genres.id
-//                   WHERE movies.id = $1;`;
-//   pool.query(query, [req.params.id])
-//     .then( result => {
-//       console.log(result);
-//       res.send(result.rows);
-//     })
-//     .catch(err => {
-//       console.log('ERROR: Get DEETS', err);
-//       res.sendStatus(500)
-//     })
-// });
-
+// post to add new movies to DB
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie
