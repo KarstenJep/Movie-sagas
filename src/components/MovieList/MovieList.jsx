@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './MovieList.css'
 import { useHistory } from 'react-router-dom';
 
+
 function MovieList() {
 
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ function MovieList() {
         console.log('Clicked Image!!', id);
         dispatch({ type: 'GET_DETAILS', payload: id});
 
-        // history.push('/details')
+        history.push('/details')
     }
 
     return (

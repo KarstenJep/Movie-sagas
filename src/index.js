@@ -44,7 +44,7 @@ function* fetchAllGenres() {
 }
 
 function* fetchMovieDetails(action) {
-    // get all movies from the DB
+    // get movie details from the DB
     try {
         const details = yield axios.get('/api/details', {params: {id: action.payload}});
         console.log('get details:', details.data);
@@ -92,7 +92,7 @@ const genres = (state = [], action) => {
 
 // Used to store the movie details
 const details = (state = [], action) => {
-    console.log('in details reducer', action.payload);
+    console.log('in details reducer', action.type, action.payload);
     switch (action.type) {
         case 'SET_DETAILS':
             return action.payload;
