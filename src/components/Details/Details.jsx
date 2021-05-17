@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 
 function Details() {
@@ -35,7 +36,7 @@ function Details() {
                 </div>
                 );
             })}
-            <button className="button" onClick={handleButton}>Back to List</button>
+            <Button className="button" variant="contained" color="primary" onClick={handleButton}>Back to List</Button>
         </>
     )
 }

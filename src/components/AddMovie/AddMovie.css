@@ -1,0 +1,11 @@
+header {
+    background-color: rgb(153, 153, 153);
+    padding: 4rem;
+    margin: 0;
+    border: solid black 1px;
+    font-size: x-large;
+}
+
+.movieForm {
+    padding: 1rem;
+}

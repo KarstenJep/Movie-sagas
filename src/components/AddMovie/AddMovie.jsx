@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import './AddMovie.css';
 import Button from '@material-ui/core/Button';
 
 
@@ -52,15 +53,19 @@ function AddMovie() {
     // DOM render for add movie form
     return (
         <>
-        <Button className="button" onClick={handleCancel}>Cancel</Button>
-        <h2>Add A Movie:</h2>
+        <header>
+            <h1>Add A Movie:</h1>
+        </header>
         <form className="movieForm" onSubmit={handleAdd}>
             <input className="input" type="text" placeholder="Enter Title" value={title} 
                     onChange={(event) => setTitle(event.target.value)}/>
+                    <br />
             <input className="input" type="text" placeholder="Enter URL" value={poster} 
                     onChange={(event) => setPoster(event.target.value)}/>
+                    <br />
             <textarea name={description} rows="3" cols="40" placeholder="Add a Description"
                     onChange={(event) => setDescription(event.target.value)}></textarea>
+                    <br />
             <select className="genres" onChange={(event) => setGenre(event.target.value)}>
                 <option value="Default">Choose Category</option>
                 {genres.map(genre => {
@@ -69,7 +74,10 @@ function AddMovie() {
                     );
                 })}
             </select>
-            <Button className="button" type="submit">Save</Button>
+            <br />
+            <Button className="button" variant="contained" color="primary" type="submit">Save</Button>
+            <Button className="button" variant="contained" color="primary" onClick={handleCancel}>Cancel</Button>
+
         </form>
         </>
     )
