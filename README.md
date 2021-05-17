@@ -7,7 +7,7 @@ Duration: 4 days.
 A movie gallery was needed to display movies in an aesthetically pleasing format. When a movie is clicked, the user should be moved to 'Details' view which has all the movie details for the movie selected. A 'Add Movie' view was needed to allow user to enter a new movie to the list. 
 
 ## Screen Shot
-![Here is an example of the application]('/public/images/screenshot.png')
+![Here is an example of the application]('public/images/screenshot.png')
 
 ## Prerequisites
 - Node
