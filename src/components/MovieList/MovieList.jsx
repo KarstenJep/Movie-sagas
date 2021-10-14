@@ -72,9 +72,10 @@ function MovieList() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
+          cursor: pointer,
         },
         cardMedia: {
-          paddingTop: '56.25%', // 16:9
+          paddingTop: '100%', // 16:9
         },
         cardContent: {
           flexGrow: 1,
@@ -127,7 +128,7 @@ function MovieList() {
                     />
                     <CardContent className={classes.cardContent}>
                       <Typography gutterBottom variant="h5" component="h2">
-                      {movie.title}
+                        {movie.title}
                       </Typography>
                     </CardContent>
                   </Card>
