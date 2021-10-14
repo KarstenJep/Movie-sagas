@@ -73,6 +73,7 @@ function MovieList() {
           display: 'flex',
           flexDirection: 'column',
           cursor: 'pointer',
+          boxShadow: 'black 0px 5px 10px',
         },
         
         cardMedia: {
