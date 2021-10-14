@@ -2,3 +2,7 @@
     display : flex;
     flex-wrap: wrap;
 }
+
+.card:hover {
+    box-shadow: black 0px 2px 6px;
+}

@@ -72,8 +72,9 @@ function MovieList() {
           height: '100%',
           display: 'flex',
           flexDirection: 'column',
-          cursor: pointer,
+          cursor: 'pointer',
         },
+        
         cardMedia: {
           paddingTop: '100%', // 16:9
         },
@@ -114,8 +115,8 @@ function MovieList() {
               </div>
             </Container>
           </div>
+
           <Container className={classes.cardGrid} maxWidth="md">
-            
             <Grid container spacing={4}>
               {movies.map((movie) => (
                 <Grid item key={movie} xs={12} sm={6} md={4}>
