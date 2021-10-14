@@ -1,5 +1,6 @@
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import './Details.css';
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
@@ -31,7 +32,7 @@ function Details() {
                             <h3>{genre}</h3>
                         )
                     })}
-                    <p>{detail.description}</p>
+                    <p className="desc">{detail.description}</p>
                     <img src={detail.poster}/>
                 </div>
                 );

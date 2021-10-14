@@ -58,7 +58,8 @@ function MovieList() {
       const useStyles = makeStyles((theme) => ({
         heroContent: {
           backgroundColor: theme.palette.text.hint,
-          padding: theme.spacing(8, 0, 6),
+          padding: theme.spacing(2, 0, 4),
+
         },
         heroButtons: {
           marginTop: theme.spacing(4),
@@ -94,12 +95,12 @@ function MovieList() {
         <main>
           
           <div className={classes.heroContent}>
-            <Container maxWidth="sm">
+            <Container maxWidth="sm" >
               <Typography component="h1" variant="h2" align="center" color="#212121" gutterBottom>
                 Karstens Classics
               </Typography>
               <Typography variant="h5" align="center" color="textPrimary" paragraph>
-                Welcome! Kick back, relax, grab some popcorn.
+                Welcome!<br/>Kick back, relax, grab some popcorn.
               </Typography>
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} justify="center">

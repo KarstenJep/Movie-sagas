@@ -63,7 +63,7 @@ function AddMovie() {
             <input className="input" type="text" placeholder="Enter URL" value={poster} 
                     onChange={(event) => setPoster(event.target.value)}/>
                     <br />
-            <textarea name={description} rows="3" cols="40" placeholder="Add a Description"
+            <textarea className="text" name={description} rows="5" cols="40" placeholder="Add a Description"
                     onChange={(event) => setDescription(event.target.value)}></textarea>
                     <br />
             <select className="genres" onChange={(event) => setGenre(event.target.value)}>
@@ -75,9 +75,9 @@ function AddMovie() {
                 })}
             </select>
             <br />
+            <Button className="button" variant="outlined" color="primary" onClick={handleCancel}>Cancel</Button>
+            {' '}
             <Button className="button" variant="contained" color="primary" type="submit">Save</Button>
-            <Button className="button" variant="contained" color="primary" onClick={handleCancel}>Cancel</Button>
-
         </form>
         </>
     )

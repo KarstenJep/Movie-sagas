@@ -7,5 +7,25 @@ header {
 }
 
 .movieForm {
-    padding: 1rem;
+    padding: 2vh;
+}
+
+.input {
+    padding: 1vh;
+    margin-top: 1vh;
+}
+
+.text {
+    padding: 1vh;
+    margin-top: 2vh;
+    margin-bottom: 1vh;
+}
+
+.genres {
+    padding: 1vh;
+    margin-bottom: 2vh;
+}
+
+.button {
+    margin: 1vh;
 }
